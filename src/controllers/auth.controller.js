@@ -70,7 +70,7 @@ export async function loginController(req, res, next) {
             return res.status(401).json({error: 'User does not match'});
         }
 
-        const token = jwt.sign({userId: user.id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE});
+        const token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: process.env.JWT_EXPIRE});
 
         res.status(200).json({
             message: 'User logged in successfully.',
